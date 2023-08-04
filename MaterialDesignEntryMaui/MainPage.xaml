@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialDesignEntryMaui.MainPage"
+             xmlns:CustomControls ="clr-namespace:MaterialDesignEntryMaui.CustomControls">
+
+    <VerticalStackLayout VerticalOptions="Center">
+        <Grid ColumnDefinitions="*,2*,*" RowDefinitions="Auto,Auto" RowSpacing="25">
+            <CustomControls:OutlinedEntry Grid.Row="0" Grid.Column="1" Placeholder="First name" FontSize="25"/>
+            <CustomControls:OutlinedEntry Grid.Row="1" Grid.Column="1" Placeholder="Last name"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
