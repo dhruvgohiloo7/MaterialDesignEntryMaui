@@ -117,7 +117,7 @@ public partial class OutlinedEntry : Grid
     private void BlEntry_Focused(object sender, FocusEventArgs e)
     {
         LblPlaceholder.FontSize = 0.75 * FontSize;
-        LblPlaceholder.TranslateTo(0, -(BlEntry.Height/2), 80, Easing.Linear);
+        LblPlaceholder.TranslateTo(0, DeviceInfo.Platform == DevicePlatform.iOS ? -((BlEntry.Height + 20) / 2) : -(BlEntry.Height/2), 80, Easing.Linear);
         LblPlaceholder.TextColor = FocusedBorderColor;
         border.Stroke = FocusedBorderColor;
     }
@@ -138,5 +138,10 @@ public partial class OutlinedEntry : Grid
             LblPlaceholder.TextColor = UnFocusedBorderColor;
         }
         border.Stroke = UnFocusedBorderColor;
+    }
+
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        BlEntry.Focus();
     }
 }

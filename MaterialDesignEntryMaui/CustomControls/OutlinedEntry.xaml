@@ -4,13 +4,16 @@
              x:Class="MaterialDesignEntryMaui.CustomControls.OutlinedEntry"
              xmlns:cc ="clr-namespace:MaterialDesignEntryMaui.CustomControls"
              x:Name="this">
+    <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+    </Grid.GestureRecognizers>
 
     <Border x:Name="border" 
             StrokeThickness="1" 
-            Padding="10,0" 
+            Padding="{OnPlatform '10,0',iOS=10}" 
             BackgroundColor="{Binding Source={x:Reference this},Path=BackgroundColor}" 
             Stroke="{Binding Source={x:Reference this},Path=UnFocusedBorderColor}">
-        <cc:BorderlessEntry x:Name="BlEntry" 
+        <cc:BorderlessEntry x:Name="BlEntry"
                             Text="{Binding Source = {x:Reference this},Path=Text}" 
                             FontSize="{Binding Source={x:Reference this},Path=FontSize}" 
                             Focused="BlEntry_Focused" 
@@ -27,4 +30,5 @@
             Padding="2,0"
             Margin="10,0"
             HorizontalOptions="Start"/>
+    
 </Grid>
