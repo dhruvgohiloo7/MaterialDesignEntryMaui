@@ -24,6 +24,9 @@ public static class MauiProgram
 #if ANDROID
 				handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
 #endif
+#if IOS   
+				handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None; 
+#endif
 			}
 		});
 

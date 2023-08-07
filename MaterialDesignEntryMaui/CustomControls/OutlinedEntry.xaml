@@ -5,8 +5,26 @@
              xmlns:cc ="clr-namespace:MaterialDesignEntryMaui.CustomControls"
              x:Name="this">
 
-    <Border x:Name="border" StrokeThickness="1" Stroke="LightGray" Padding="10,0">
-        <cc:BorderlessEntry x:Name="BlEntry" Text="{Binding Source = {x:Reference this},Path=Text}" FontSize="{Binding Source={x:Reference this},Path=FontSize}" Focused="BlEntry_Focused" Unfocused="BlEntry_Unfocused"/>
+    <Border x:Name="border" 
+            StrokeThickness="1" 
+            Padding="10,0" 
+            BackgroundColor="{Binding Source={x:Reference this},Path=BackgroundColor}" 
+            Stroke="{Binding Source={x:Reference this},Path=UnFocusedBorderColor}">
+        <cc:BorderlessEntry x:Name="BlEntry" 
+                            Text="{Binding Source = {x:Reference this},Path=Text}" 
+                            FontSize="{Binding Source={x:Reference this},Path=FontSize}" 
+                            Focused="BlEntry_Focused" 
+                            Unfocused="BlEntry_Unfocused"/>
     </Border>
-        <Label x:Name="LblPlaceholder" Text="{Binding Source={x:Reference this},Path=Placeholder}" FontSize="{Binding Source={x:Reference this},Path=FontSize}" TextColor="LightGray" VerticalOptions="Center" Margin="10,0" Padding="2,0" HorizontalOptions="Start" BackgroundColor="White"/>
+
+    <Label x:Name="LblPlaceholder" 
+            Grid.RowSpan="2" 
+            Text="{Binding Source={x:Reference this},Path=Placeholder}" 
+            FontSize="{Binding Source={x:Reference this},Path=FontSize}" 
+            TextColor="{Binding Source={x:Reference this},Path=PlaceholderColor}"
+            BackgroundColor="{Binding Source={x:Reference this},Path=PlaceholderBackgroundColor}"
+            VerticalOptions="Center" 
+            Padding="2,0"
+            Margin="10,0"
+            HorizontalOptions="Start"/>
 </Grid>

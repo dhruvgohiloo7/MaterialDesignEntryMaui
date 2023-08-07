@@ -1,3 +1,6 @@
+
+using Microsoft.Maui.Graphics;
+
 namespace MaterialDesignEntryMaui.CustomControls;
 
 public partial class OutlinedEntry : Grid
@@ -46,12 +49,77 @@ public partial class OutlinedEntry : Grid
         get => (double)GetValue(FontSizeProperty); set => SetValue(FontSizeProperty, value);
     }
 
+   public static readonly BindableProperty FocusedBorderColorProperty = BindableProperty.Create(
+        propertyName: nameof(FocusedBorderColor),
+        returnType: typeof(Color),
+        defaultValue: Colors.Black,
+        declaringType: typeof(OutlinedEntry),
+        defaultBindingMode: BindingMode.TwoWay
+        );
+
+    public Color FocusedBorderColor
+    {
+        get => (Color)GetValue(FocusedBorderColorProperty); set => SetValue(FocusedBorderColorProperty, value);
+    }
+
+    public static readonly BindableProperty UnFocusedBorderColorProperty = BindableProperty.Create(
+        propertyName: nameof(UnFocusedBorderColor),
+        returnType: typeof(Color),
+        defaultValue: Colors.LightSlateGrey,
+        declaringType: typeof(OutlinedEntry),
+        defaultBindingMode: BindingMode.TwoWay
+        );
+
+    public Color UnFocusedBorderColor
+    {
+        get => (Color)GetValue(UnFocusedBorderColorProperty); set => SetValue(UnFocusedBorderColorProperty, value);
+    }
+
+    public static readonly BindableProperty PlaceholderColorProperty = BindableProperty.Create(
+        propertyName: nameof(PlaceholderColor),
+        returnType: typeof(Color),
+        defaultValue: Colors.LightSlateGrey,
+        declaringType: typeof(OutlinedEntry),
+        defaultBindingMode: BindingMode.TwoWay
+        );
+
+    public Color PlaceholderColor
+    {
+        get => (Color)GetValue(PlaceholderColorProperty); set => SetValue(PlaceholderColorProperty, value);
+    }
+
+    public static readonly BindableProperty PlaceholderBackgroundColorProperty = BindableProperty.Create(
+        propertyName: nameof(PlaceholderBackgroundColor),
+        returnType: typeof(Color),
+        defaultValue: Colors.White,
+        declaringType: typeof(OutlinedEntry),
+        defaultBindingMode: BindingMode.TwoWay
+        );
+
+    public Color PlaceholderBackgroundColor
+    {
+        get => (Color)GetValue(PlaceholderBackgroundColorProperty); set => SetValue(PlaceholderBackgroundColorProperty, value);
+    }
+
+    public static new readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(
+        propertyName: nameof(BackgroundColor),
+        returnType: typeof(Color),
+        defaultValue: Colors.Transparent,
+        declaringType: typeof(OutlinedEntry),
+        defaultBindingMode: BindingMode.TwoWay
+        );
+
+    public new Color BackgroundColor
+    {
+        get => (Color)GetValue(BackgroundColorProperty); set => SetValue(BackgroundColorProperty, value);
+    }
+
     private void BlEntry_Focused(object sender, FocusEventArgs e)
     {
         LblPlaceholder.FontSize = 0.75 * FontSize;
         LblPlaceholder.TranslateTo(0, -(BlEntry.Height/2), 80, Easing.Linear);
-        LblPlaceholder.TextColor = Colors.Blue;
-        border.Stroke = Colors.Blue;
+        LblPlaceholder.TextColor = FocusedBorderColor;
+        border.Stroke = FocusedBorderColor;
     }
 
     private void BlEntry_Unfocused(object sender, FocusEventArgs e)
@@ -62,11 +130,13 @@ public partial class OutlinedEntry : Grid
             LblPlaceholder.FontSize = FontSize;
             LblPlaceholder.TranslateTo(0, 0, 80, Easing.Linear);
             entry.Text = string.Empty;
+            LblPlaceholder.TextColor = PlaceholderColor;
         }
         else
-            LblPlaceholder.FontSize = 0.75 * FontSize;
-
-        LblPlaceholder.TextColor = Colors.LightGray;
-        border.Stroke = Colors.LightGray;
+        {
+            //LblPlaceholder.FontSize = 0.75 * FontSize;
+            LblPlaceholder.TextColor = UnFocusedBorderColor;
+        }
+        border.Stroke = UnFocusedBorderColor;
     }
 }
