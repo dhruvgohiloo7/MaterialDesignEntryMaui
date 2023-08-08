@@ -15,14 +15,12 @@
                                           Placeholder="First name" 
                                           FontSize="20" 
                                           FocusedBorderColor="DarkOliveGreen" 
-                                          UnFocusedBorderColor="LightGray" 
                                           PlaceholderBackgroundColor="#fcfafa"/>
             <CustomControls:OutlinedEntry Grid.Row="1" 
                                           Grid.Column="1" 
-                                          Placeholder="Last name" 
+                                          Placeholder="Last name"
                                           FontSize="20" 
                                           FocusedBorderColor="Chocolate"
-                                          UnFocusedBorderColor="LightGray"
                                           PlaceholderBackgroundColor="#fcfafa"/>
         </Grid>
     </VerticalStackLayout>

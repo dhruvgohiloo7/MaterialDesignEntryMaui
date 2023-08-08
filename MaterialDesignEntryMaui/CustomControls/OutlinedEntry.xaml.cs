@@ -26,7 +26,7 @@ public partial class OutlinedEntry : Grid
     public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create(
         propertyName: nameof(Placeholder),
         returnType: typeof(string),
-        defaultValue: null,
+        defaultValue: "Enter text",
         declaringType: typeof(OutlinedEntry),
         defaultBindingMode: BindingMode.TwoWay
         );
