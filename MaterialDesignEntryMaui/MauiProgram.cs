@@ -1,6 +1,7 @@
 ﻿using MaterialDesignEntryMaui.CustomControls;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Platform;
+using System.Runtime.CompilerServices;
 
 namespace MaterialDesignEntryMaui;
 
@@ -24,8 +25,17 @@ public static class MauiProgram
 #if ANDROID
 				handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
 #endif
-#if IOS   
+#if IOS
 				handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None; 
+#endif
+#if WINDOWS
+				//Note : logic is added to App.xaml in Windows
+				//< Thickness x: Key = "TextControlBorderThemeThickness" > 0 </ Thickness >
+				//< Thickness x: Key = "TextControlBorderThemeThicknessFocused" > 0 </ Thickness >
+				//< SolidColorBrush x: Key = "TextControlBackground" Color = "Transparent" />
+				//< SolidColorBrush x: Key = "TextControlBackgroundFocused" Color = "Transparent" />
+
+				handler.PlatformView.Padding = new Microsoft.UI.Xaml.Thickness(0);
 #endif
 			}
 		});

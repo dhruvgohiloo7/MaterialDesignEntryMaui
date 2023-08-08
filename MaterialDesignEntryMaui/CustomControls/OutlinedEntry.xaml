@@ -10,7 +10,7 @@
 
     <Border x:Name="border" 
             StrokeThickness="1" 
-            Padding="{OnPlatform '10,0',iOS=10}" 
+            Padding="{OnPlatform 10, Android= '10,0'}" 
             BackgroundColor="{Binding Source={x:Reference this},Path=BackgroundColor}" 
             Stroke="{Binding Source={x:Reference this},Path=UnFocusedBorderColor}">
         <cc:BorderlessEntry x:Name="BlEntry"
