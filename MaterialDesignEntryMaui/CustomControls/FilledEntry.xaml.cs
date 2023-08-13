@@ -37,7 +37,7 @@ public partial class FilledEntry : EntryBase
 
     private void BlEntry_Focused(object sender, FocusEventArgs e)
     {
-        LblPlaceholder.FontSize = 0.75 * 20;
+        LblPlaceholder.FontSize = 0.75 * FontSize;
         LblPlaceholder.TranslateTo(0, -((BlEntry.Height + (BlEntry.FontSize - (BlEntry.FontSize * 0.75) - 5))/2), 80, Easing.Linear);
         LblPlaceholder.TextColor = boxViewBorder.Color = FocusedBorderColor;
     }
