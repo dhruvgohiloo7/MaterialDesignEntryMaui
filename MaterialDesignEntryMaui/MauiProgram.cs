@@ -24,6 +24,7 @@ public static class MauiProgram
 			{
 #if ANDROID
 				handler.PlatformView.SetBackgroundColor(Android.Graphics.Color.Transparent);
+				handler.PlatformView.SetPadding(0,0,0,0);
 #endif
 #if IOS
 				handler.PlatformView.BorderStyle = UIKit.UITextBorderStyle.None; 

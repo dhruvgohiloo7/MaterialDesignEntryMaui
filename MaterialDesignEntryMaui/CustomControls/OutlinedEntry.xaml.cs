@@ -3,90 +3,12 @@ using Microsoft.Maui.Graphics;
 
 namespace MaterialDesignEntryMaui.CustomControls;
 
-public partial class OutlinedEntry : Grid
+public partial class OutlinedEntry : EntryBase
 {
 	public OutlinedEntry()
 	{
 		InitializeComponent();
 	}
-
-	public static readonly BindableProperty TextProperty = BindableProperty.Create(
-		propertyName:nameof(Text),
-		returnType: typeof(string),
-		defaultValue: null,
-		declaringType:typeof(OutlinedEntry),
-		defaultBindingMode:BindingMode.TwoWay
-		); 
-
-	public string Text
-	{
-		get => (string)GetValue( TextProperty ); set => SetValue( TextProperty, value );
-	}
-
-    public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create(
-        propertyName: nameof(Placeholder),
-        returnType: typeof(string),
-        defaultValue: "Enter text",
-        declaringType: typeof(OutlinedEntry),
-        defaultBindingMode: BindingMode.TwoWay
-        );
-
-    public string Placeholder
-    {
-        get => (string)GetValue(PlaceholderProperty); set => SetValue(PlaceholderProperty, value);
-    }
-
-    public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(
-        propertyName: nameof(FontSize),
-        returnType: typeof(double),
-        defaultValue: 15.0,
-        declaringType: typeof(OutlinedEntry),
-        defaultBindingMode: BindingMode.TwoWay
-        );
-
-    public double FontSize
-    {
-        get => (double)GetValue(FontSizeProperty); set => SetValue(FontSizeProperty, value);
-    }
-
-   public static readonly BindableProperty FocusedBorderColorProperty = BindableProperty.Create(
-        propertyName: nameof(FocusedBorderColor),
-        returnType: typeof(Color),
-        defaultValue: Colors.Black,
-        declaringType: typeof(OutlinedEntry),
-        defaultBindingMode: BindingMode.TwoWay
-        );
-
-    public Color FocusedBorderColor
-    {
-        get => (Color)GetValue(FocusedBorderColorProperty); set => SetValue(FocusedBorderColorProperty, value);
-    }
-
-    public static readonly BindableProperty UnFocusedBorderColorProperty = BindableProperty.Create(
-        propertyName: nameof(UnFocusedBorderColor),
-        returnType: typeof(Color),
-        defaultValue: Colors.LightSlateGrey,
-        declaringType: typeof(OutlinedEntry),
-        defaultBindingMode: BindingMode.TwoWay
-        );
-
-    public Color UnFocusedBorderColor
-    {
-        get => (Color)GetValue(UnFocusedBorderColorProperty); set => SetValue(UnFocusedBorderColorProperty, value);
-    }
-
-    public static readonly BindableProperty PlaceholderColorProperty = BindableProperty.Create(
-        propertyName: nameof(PlaceholderColor),
-        returnType: typeof(Color),
-        defaultValue: Colors.LightSlateGrey,
-        declaringType: typeof(OutlinedEntry),
-        defaultBindingMode: BindingMode.TwoWay
-        );
-
-    public Color PlaceholderColor
-    {
-        get => (Color)GetValue(PlaceholderColorProperty); set => SetValue(PlaceholderColorProperty, value);
-    }
 
     public static readonly BindableProperty PlaceholderBackgroundColorProperty = BindableProperty.Create(
         propertyName: nameof(PlaceholderBackgroundColor),
@@ -117,7 +39,7 @@ public partial class OutlinedEntry : Grid
     private void BlEntry_Focused(object sender, FocusEventArgs e)
     {
         LblPlaceholder.FontSize = 0.75 * FontSize;
-        LblPlaceholder.TranslateTo(0, DeviceInfo.Platform == DevicePlatform.Android ? -(BlEntry.Height / 2) : -((BlEntry.Height + 20) /2), 80, Easing.Linear);
+        LblPlaceholder.TranslateTo(0, -((BlEntry.Height + 20) / 2), 80, Easing.Linear);
         LblPlaceholder.TextColor = FocusedBorderColor;
         border.Stroke = FocusedBorderColor;
     }

@@ -2,26 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MaterialDesignEntryMaui.MainPage"
-             xmlns:CustomControls ="clr-namespace:MaterialDesignEntryMaui.CustomControls"
-             BackgroundColor="#fcfafa">
+             xmlns:CustomControls ="clr-namespace:MaterialDesignEntryMaui.CustomControls">
 
     <VerticalStackLayout VerticalOptions="Center">
         <Grid 
             ColumnDefinitions="*,2*,*" 
-            RowDefinitions="Auto,Auto" 
+            RowDefinitions="Auto,Auto,Auto" 
             RowSpacing="25">
-            <CustomControls:OutlinedEntry Grid.Row="0" 
-                                          Grid.Column="1" 
-                                          Placeholder="First name" 
-                                          FontSize="20" 
-                                          FocusedBorderColor="DarkOliveGreen" 
-                                          PlaceholderBackgroundColor="#fcfafa"/>
+            <CustomControls:FilledEntry Grid.Row="0" 
+                                        Grid.Column="1" 
+                                        Placeholder="Filled Entry"
+                                        FontSize="20"
+                                        FocusedBorderColor="DarkGoldenrod"/>
             <CustomControls:OutlinedEntry Grid.Row="1" 
                                           Grid.Column="1" 
-                                          Placeholder="Last name"
-                                          FontSize="20" 
-                                          FocusedBorderColor="Chocolate"
-                                          PlaceholderBackgroundColor="#fcfafa"/>
+                                          Placeholder="Outlined Entry"
+                                          FontSize="20"
+                                          FocusedBorderColor="DarkMagenta"/>
+            
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

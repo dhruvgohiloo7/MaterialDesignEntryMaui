@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<cc:EntryBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MaterialDesignEntryMaui.CustomControls.FilledEntry"
+             xmlns:cc ="clr-namespace:MaterialDesignEntryMaui.CustomControls"
+             RowDefinitions="Auto,Auto" RowSpacing="0" x:Name="this">
+    <cc:EntryBase.GestureRecognizers>
+        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+    </cc:EntryBase.GestureRecognizers>
+    <Border x:Name="border" Grid.Row="0" StrokeThickness="0" BackgroundColor="{Binding Source={x:Reference this},Path=UnFocusedBackgroundColor}">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="3,3,0,0" />
+        </Border.StrokeShape>
+        <cc:BorderlessEntry x:Name="BlEntry"
+                            Text="{Binding Source = {x:Reference this},Path=Text}"
+                            FontSize="{Binding Source={x:Reference this},Path=FontSize}" 
+                            Focused="BlEntry_Focused"
+                            Unfocused="BlEntry_Unfocused"/>
+    </Border>
+    <Label x:Name="LblPlaceholder"
+           Text="{Binding Source={x:Reference this},Path=Placeholder}"
+           FontSize="{Binding Source={x:Reference this},Path=FontSize}"
+           VerticalOptions="Center"
+           TextColor="{Binding Source={x:Reference this},Path=PlaceholderColor}"
+           HorizontalOptions="Start" />
+    <BoxView x:Name="boxViewBorder" Grid.Row="1"
+             HeightRequest="2"
+             Color="{Binding Source={x:Reference this},Path=UnFocusedBorderColor}"
+             HorizontalOptions="FillAndExpand"
+             VerticalOptions="End"/>
+</cc:EntryBase>

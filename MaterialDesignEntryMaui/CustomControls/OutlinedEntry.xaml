@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Grid xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<cc:EntryBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MaterialDesignEntryMaui.CustomControls.OutlinedEntry"
              xmlns:cc ="clr-namespace:MaterialDesignEntryMaui.CustomControls"
              x:Name="this">
-    <Grid.GestureRecognizers>
+    <cc:EntryBase.GestureRecognizers>
         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-    </Grid.GestureRecognizers>
+    </cc:EntryBase.GestureRecognizers>
 
     <Border x:Name="border" 
             StrokeThickness="1" 
-            Padding="{OnPlatform 10, Android= '10,0'}" 
+            Padding="10" 
             BackgroundColor="{Binding Source={x:Reference this},Path=BackgroundColor}" 
             Stroke="{Binding Source={x:Reference this},Path=UnFocusedBorderColor}">
         <cc:BorderlessEntry x:Name="BlEntry"
-                            Text="{Binding Source = {x:Reference this},Path=Text}" 
-                            FontSize="{Binding Source={x:Reference this},Path=FontSize}" 
-                            Focused="BlEntry_Focused" 
+                            Text="{Binding Source = {x:Reference this},Path=Text}"
+                            FontSize="{Binding Source={x:Reference this},Path=FontSize}"
+                            Focused="BlEntry_Focused"
                             Unfocused="BlEntry_Unfocused"/>
     </Border>
 
@@ -31,4 +31,4 @@
             Margin="10,0"
             HorizontalOptions="Start"/>
     
-</Grid>
+</cc:EntryBase>
